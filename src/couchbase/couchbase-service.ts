@@ -16,7 +16,7 @@ export class CouchbaseService implements ICouchbaseService {
 
   async connect(): Promise<any> {
     if (!this.couchbaseClient) {
-      const ottoman = new Ottoman();
+      const ottoman = new Ottoman({ collectionName: '_default' });
       this.couchbaseClient = await ottoman.connect(
         this.couchbaseConnectOptions,
       );
